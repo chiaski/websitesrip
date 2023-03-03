@@ -1,0 +1,43 @@
+body {
+  background: gray;
+  background-image: url(clouds.gif);
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+}
+
+.cliff {
+  position: fixed;
+  width: 480px;
+  height: 200px;
+  bottom: -5px;
+  right: 0;
+  z-index: 99;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(rock.gif);
+  mix-blend-mode: lighten;
+}
+
+.cliff.flip {
+  left: 0;
+  bottom: 0;
+  width: 900px;
+  max-width: 60vw;
+  height: 205px;
+  background-image: url(rock2.gif);
+}
+
+.grave {
+  position: absolute;
+}
+.grave img {
+  display: inline-block;
+  width: 180px;
+  max-width: 20vw;
+}
+.grave img:hover {
+  filter: brightness(0.8);
+}
+
+/*# sourceMappingURL=s.css.map */
