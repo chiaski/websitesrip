@@ -65,11 +65,16 @@ $(document).ready(function() {
     
     $("#view-grave").fadeIn();
     
-    
-    
   });
   
   
 });
 
 
+
+
+function viewGrave(which){
+  
+  $("#view-grave").fadeIn();
+  
+};

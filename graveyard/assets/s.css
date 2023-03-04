@@ -37,7 +37,7 @@ main {
   box-sizing: border-box;
   position: fixed;
   z-index: 99;
-  bottom: 50px;
+  bottom: 0px;
   left: 0;
   margin: 2em 0;
   width: 100%;
@@ -48,10 +48,24 @@ main {
 #clock .words {
   padding: 0.5em 1em;
   color: #2f2929;
-  background: #d9b4c0;
   font-size: 0.7rem;
   border-radius: 20px;
   width: auto;
+}
+#clock .words .actions {
+  padding: 0.5em;
+  cursor: pointer;
+}
+#clock .words .actions a {
+  padding: 0.5em;
+  margin: 0;
+}
+#clock .words .actions a.small {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+#clock .words .actions a:hover {
+  text-shadow: 0 0 8px rgba(47, 41, 41, 0.5);
 }
 
 .cliff {
@@ -157,15 +171,14 @@ main {
   left: 0;
   z-index: 11;
   background-image: url(noise.gif);
-  mix-blend-mode: multiply;
-  opacity: 0.4;
+  mix-blend-mode: color-burn;
+  opacity: 0.3;
   background-size: 30%;
 }
 
 #view-grave {
   background: #d9b4c0;
   display: flex;
-  display: none;
 }
 #view-grave .wrapper {
   text-align: center;
@@ -185,6 +198,7 @@ main {
 #view-grave .grave img {
   width: 220px;
   max-width: 80vw;
+  filter: brightness(0.8);
 }
 #view-grave .grave .flowers {
   background: #d9b4c0;
@@ -193,7 +207,7 @@ main {
 }
 #view-grave .grave .flowers img {
   mix-blend-mode: darken;
-  filter: brightness(0.6);
+  filter: brightness(0.8);
 }
 
 /*# sourceMappingURL=s.css.map */
