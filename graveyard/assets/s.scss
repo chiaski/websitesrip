@@ -9,7 +9,8 @@
 $w: #f5f5f4;
 $b: #2f2929;
 $b-lighter: rgba(47, 41, 41, 0.5);
-$p: #d9b4c0;
+//$p: #d9b4c0;
+$p: #fabdd1;
 
 * {
   box-sizing: border-box;
@@ -38,10 +39,6 @@ body {
   position: fixed; 
 }
 
-main {
-  //  min-height: 300vh;
-  min-height: 2000px;
-}
 
 #clock {
   box-sizing: border-box;
@@ -96,54 +93,6 @@ main {
 }
 
 
-.decor.flower-remain{
-  position: absolute;
-}
-
-img.flower-remain{
-  mix-blend-mode: overlay;
-  filter: brightness(1.5);
-  z-index: 9;
-  max-width: 50px;
-  object-fit: contain;
-}
-
-.cliff {
-  position: fixed;
-  width: 480px;
-  height: 200px;
-  bottom: -5px;
-  right: 0;
-  z-index: 99;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url(rock.gif);
-  filter: brightness(0.8) contrast(1.2);
-  display: none;
-}
-
-.cliff.flip {
-  left: 0;
-  bottom: 0;
-  width: 900px;
-  //  max-width: 60vw;
-  height: 205px;
-  background-image: url(rock2.gif);
-}
-
-.flowers-front {
-  position: absolute;
-  width: 100vw;
-  height: 400px;
-  top: 490px;
-  //  bottom: 0;
-  object-fit: contain;
-  z-index: 2;
-  mix-blend-mode: screen;
-  background-image: url(flower-field1.gif);
-  background-size: 40%;
-  filter: brightness(0.9);
-}
 
 .grass {
   position: -webkit-sticky;
@@ -151,7 +100,7 @@ img.flower-remain{
   left: 0;
   width: 100vw;
   height: 500vh;
-  max-height: 1300px;
+  max-height: 1500px;
   top: 450px;
   bottom: 0;
   z-index: 0;
@@ -163,45 +112,61 @@ img.flower-remain{
   filter: brightness(1.2);
 }
 
+
+main {
+  //  min-height: 300vh;
+  min-height: 2100px;
+  mix-blend-mode: darken;
+  
+  
+}
+
 .grave {
 
   position: absolute;
   cursor: help;
+//    filter: brightness(0.8);
+    filter: brightness(1.2);
   //    mix-blend-mode: multiply;
 
   img {
     display: inline-block;
     width: 140px;
     max-width: 20vw;
-    filter: brightness(0.6);
   }
   
   .candle{
-    position: relative;
-    margin-top: -200px;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    object-fit: contain;
     
     img{
       object-fit: contain;
-      width: 100px;
-      max-width: 60vw;
+      width: 80px;
+      max-width: 30%;
       filter: brightness(0.9);
+      margin: 0 auto;
     }
     
   }
 
   .flowers {
     position: relative;
-    background: red;
     width: 100%;
     display: block;
+    z-index: 2;
+//    background: blue;
+      mix-blend-mode: darken;
+    height: 200px;
 
     img {
+      position: absolute;
       width: 220px;
       max-width: 80vw;
-      filter: brightness(0.9);
-      mix-blend-mode: darken;
-      position: absolute;
-      margin-top: -40px;
+      filter: brightness(1);
+      margin-top: 0px;
       margin-left: -80px;
     }
   }
@@ -209,10 +174,7 @@ img.flower-remain{
 
 .grave:hover {
   cursor: pointer;
-
-  img {
-    filter: brightness(0.8);
-  }
+    filter: brightness(1.4);
 
   .flowers {
     img {
@@ -260,35 +222,90 @@ img.flower-remain{
     text-align: center;
     z-index: 20;
     width: 100%;
-    height: 400px;
+    min-height: 400px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     mix-blend-mode: darken;
+  }
+  
+  img{
+    max-width: 70vw;
   }
 
   .grave {
 
     margin: 0 auto;
     mix-blend-mode: darken;
-    margin-top: 30vh;
+    filter: brightness(1.15);
 
     .grave-stone {
       width: 220px;
-      max-width: 80vw;
+      max-width: 75vw;
       filter: brightness(0.8);
     }
-
-    .flowers {
-      background: $p;
-      position: relative;
-      mix-blend-mode: darken;
-
-      img {
-        mix-blend-mode: darken;
-        filter: brightness(0.8);
-
-      }
+    
+    .candle, .flowers{
+      margin-top: 20px;
     }
+
+//    .flowers {
+//      position: relative;
+//
+//    }
   }
+}
+
+
+
+// DECOR
+
+.decor.flower-remain{
+  position: absolute;
+}
+
+img.flower-remain{
+  mix-blend-mode: overlay;
+  filter: brightness(1.5);
+  z-index: 9;
+  max-width: 50px;
+  object-fit: contain;
+}
+
+.cliff {
+  position: absolute;
+  width: 480px;
+  height: 200px;
+  bottom: -5px;
+  right: 0;
+  z-index: 99;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(rock.gif);
+  filter: brightness(0.8) contrast(1.2);
+  mix-blend-mode: screen;
+}
+
+.cliff.flip {
+  left: 0;
+  bottom: 0;
+  width: 900px;
+  //  max-width: 60vw;
+  height: 205px;
+  background-image: url(rock2.gif);
+}
+
+.flowers-front {
+  position: absolute;
+  width: 100vw;
+  height: 400px;
+  top: 490px;
+  //  bottom: 0;
+  object-fit: contain;
+  z-index: 2;
+  mix-blend-mode: screen;
+  background-image: url(flower-field1.gif);
+  background-size: 40%;
+  filter: brightness(0.9);
 }

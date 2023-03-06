@@ -12,8 +12,9 @@
   <body>
     
     <header id="instructions">
-    <span>(X) Plant a Flower</span>
-    <span>(V) View</span>
+      <span>The graveyard is open from 10AM to 4PM daily.
+      <br>
+      </span>
     </header>
     
     <div id="clock">
@@ -26,7 +27,6 @@
         <div id="act" class="actions">
           <a name="lay">Lay flower</a> 
           <a name="light">Light candle</a> 
-          <a name="light-remove">Remove candle</a> 
           <br>
           <a name="leave" class="small">Leave</a>
         </div>
@@ -36,11 +36,9 @@
     
     <div id="decor">
       
-      <div class="cliff no-repeat"></div>
-      <div class="cliff flip"></div>
     </div>
     
-    <section id="view-grave" class="view">
+    <section id="view-grave" class="view" style="display: none;">
       <div class="bg"></div>
       <div class="wrapper">
         
@@ -77,7 +75,11 @@
     
       <div class="grass">
       <div class="flowers-front"> </div>
+        
+      <div class="cliff no-repeat"></div>
+      <div class="cliff flip"></div>
       </div>
+      
     
     </main>
     

@@ -16,7 +16,7 @@ function pick(arr) {
 $(document).ready(function() {
   
   
-  let grave_count = 2;
+  let grave_count = 5;
   let grave = "";
   
   for(let i = 0; i < grave_count; i++){

@@ -4,6 +4,7 @@ var g = {
     console.log("Viewing Grave " + graveID);
     
     $("#view-grave").fadeIn();
+    $("#act").fadeIn();
     
     let _html = $("main .grave[i='"+ graveID  +"']").html();
     
@@ -12,6 +13,21 @@ var g = {
     $("#view-grave .wrapper").html(`<div class="grave" i="` + graveID +`">` + _html + `</div>`);
     
     console.log("lol", _html);
+    
+    // Fix action text
+    switch($("#view-grave .candle img").attr('state')){
+      case "lit": 
+      $("#act a[name='light']").html('Blow out candle');
+        break;
+        
+      case "blown": 
+      $("#act a[name='light']").html('Remove candle');
+        break;
+        
+      default:
+      $("#act a[name='light']").html('Light candle');
+        break;
+    }
     
   },
   
@@ -30,6 +46,7 @@ var g = {
   
   leave: function(){ // save active grave
     
+    $("#act").fadeOut();
     
     let _html = $("#view-grave .wrapper .grave").html();
     let _id = $("#view-grave .wrapper .grave").attr("i");
@@ -37,7 +54,6 @@ var g = {
     console.log("saving html: " + _html);
     
     $("#view-grave").fadeOut();
-    
     
   }
 }
@@ -51,20 +67,21 @@ g.scatterFlower();
 g.scatterFlower();
 g.scatterFlower();
 
-var actions = {
-  
+var actions = {  
   light: function(){
     
-    if( !$("#view-grave .candle") ){
+    
+    if( !$("#view-grave .candle") || $("#view-grave .candle").length <= 0){
       $(`<div class="candle">
       <img src="objects/candle-unlit.gif" state="unlit">
-        </div>`).appendTo("#view-grave")
+        </div>`).appendTo("#view-grave .grave")
     }
     
-    let _state = $(".candle img").attr('state');
+    let candle = $("#view-grave .candle img");
+    let _state = $("#view-grave .candle img").attr('state');
     
-    if(_state == "unlit" || _state == "blown"){
-      $(".candle img")
+    if(_state == "unlit"){
+      $(candle)
         .attr("src", "objects/candle-gif.gif")
         .attr("state", "lit"); 
       
@@ -72,17 +89,30 @@ var actions = {
     }   
     
     if(_state == "lit"){
-      $(".candle img")
+      $(candle)
         .attr("src", "objects/candle-blown.gif")
         .attr("state", "blown"); 
       
-      $("#act a[name='light']").html('Light (new) candle');
+      $("#act a[name='light']").html('Remove candle');
     }
+    
+    if(_state == "blown"){
+      
+      $(candle).parent().remove();
+      
+      $(`<div class="candle">
+      <img src="" state="unlit">
+        </div>`).appendTo("#view-grave  .grave")
+      
+      $("#act a[name='light']").html('Light candle');
+    }   
     
   },
   
   layflower: function(){
-    $(`<img src='assets/flower` + randInt(1,5) + `.gif' style='top:` + randInt(50,120) + `px;left:` + randInt(0,120) +`px;'>`).hide().appendTo("#view-grave .flowers").fadeIn();
+    $(`<img src='assets/flower` + randInt(1,5) + `.gif' style='top:` + randInt(50,120) + `px;'>`)
+      .css("left", randInt(0,120) + "px")
+      .hide().appendTo("#view-grave .flowers").fadeIn();
   }
   
   
@@ -108,7 +138,7 @@ $("#act").on("click", "a", function(){
 })
 
 setTimeout(function(){
-//g.view(1);
+//g.view(0);
   
 }, 50);
 
