@@ -95,6 +95,19 @@ main {
   //  display: unset;
 }
 
+
+.decor.flower-remain{
+  position: absolute;
+}
+
+img.flower-remain{
+  mix-blend-mode: overlay;
+  filter: brightness(1.5);
+  z-index: 9;
+  max-width: 50px;
+  object-fit: contain;
+}
+
 .cliff {
   position: fixed;
   width: 480px;
@@ -130,7 +143,6 @@ main {
   background-image: url(flower-field1.gif);
   background-size: 40%;
   filter: brightness(0.9);
-
 }
 
 .grass {
@@ -163,7 +175,19 @@ main {
     max-width: 20vw;
     filter: brightness(0.6);
   }
-
+  
+  .candle{
+    position: relative;
+    margin-top: -200px;
+    
+    img{
+      object-fit: contain;
+      width: 100px;
+      max-width: 60vw;
+      filter: brightness(0.9);
+    }
+    
+  }
 
   .flowers {
     position: relative;
@@ -172,11 +196,13 @@ main {
     display: block;
 
     img {
+      width: 220px;
+      max-width: 80vw;
       filter: brightness(0.9);
       mix-blend-mode: darken;
       position: absolute;
       margin-top: -40px;
-      margin-left: -40px;
+      margin-left: -80px;
     }
   }
 }
@@ -247,10 +273,10 @@ main {
     mix-blend-mode: darken;
     margin-top: 30vh;
 
-    img {
+    .grave-stone {
       width: 220px;
       max-width: 80vw;
-    filter: brightness(0.8);
+      filter: brightness(0.8);
     }
 
     .flowers {

@@ -23,17 +23,19 @@
         <br>You have <span>flowers</span>.
 -->
         
-        <div class="actions">
-          <a name="">Lay flower</a> 
-          <a name="">Light candle</a> 
+        <div id="act" class="actions">
+          <a name="lay">Lay flower</a> 
+          <a name="light">Light candle</a> 
+          <a name="light-remove">Remove candle</a> 
           <br>
-          <a name="" class="small">Leave</a>
+          <a name="leave" class="small">Leave</a>
         </div>
         
         </div>
     </div>
     
     <div id="decor">
+      
       <div class="cliff no-repeat"></div>
       <div class="cliff flip"></div>
     </div>
@@ -43,10 +45,13 @@
       <div class="wrapper">
         
       <div class="grave">
-      <img src="tombstones/4.gif">
+      <img src="tombstones/4.gif" class="grave-stone">
         <p class="grave-name">
 
         </p>
+      <div class="candle">
+      <img src="objects/candle-unlit.gif" state="unlit">
+        </div>
       <div class="flowers">
         <img src='assets/flower4.gif' style='top:14px;left:38px;'><img src='assets/flower1.gif' style='top:21px;left:24px;'>
         </div>
@@ -77,7 +82,8 @@
     </main>
     
     
-    <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="assets/jquery.min.js" type="text/javascript"></script>
     <script src="assets/grave.js" type="text/javascript"></script>
+    <script src="assets/tomb.js" type="text/javascript"></script>
   </body>
 </html>

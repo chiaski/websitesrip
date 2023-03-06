@@ -68,6 +68,18 @@ main {
   text-shadow: 0 0 8px rgba(47, 41, 41, 0.5);
 }
 
+.decor.flower-remain {
+  position: absolute;
+}
+
+img.flower-remain {
+  mix-blend-mode: overlay;
+  filter: brightness(1.5);
+  z-index: 9;
+  max-width: 50px;
+  object-fit: contain;
+}
+
 .cliff {
   position: fixed;
   width: 480px;
@@ -131,6 +143,16 @@ main {
   max-width: 20vw;
   filter: brightness(0.6);
 }
+.grave .candle {
+  position: relative;
+  margin-top: -200px;
+}
+.grave .candle img {
+  object-fit: contain;
+  width: 100px;
+  max-width: 60vw;
+  filter: brightness(0.9);
+}
 .grave .flowers {
   position: relative;
   background: red;
@@ -138,11 +160,13 @@ main {
   display: block;
 }
 .grave .flowers img {
+  width: 220px;
+  max-width: 80vw;
   filter: brightness(0.9);
   mix-blend-mode: darken;
   position: absolute;
   margin-top: -40px;
-  margin-left: -40px;
+  margin-left: -80px;
 }
 
 .grave:hover {
@@ -195,7 +219,7 @@ main {
   mix-blend-mode: darken;
   margin-top: 30vh;
 }
-#view-grave .grave img {
+#view-grave .grave .grave-stone {
   width: 220px;
   max-width: 80vw;
   filter: brightness(0.8);

@@ -16,7 +16,7 @@ function pick(arr) {
 $(document).ready(function() {
   
   
-  let grave_count = 6;
+  let grave_count = 2;
   let grave = "";
   
   for(let i = 0; i < grave_count; i++){
@@ -39,8 +39,8 @@ $(document).ready(function() {
 //    console.log("flowers:", flowers);
 
     
-  grave = `<div class="grave">
-      <img src="tombstones/` + randInt(1, 6) + `.gif">
+  grave = `<div class="grave" i="`+ i +`">
+      <img class="grave-stone" src="tombstones/` + randInt(1, 6) + `.gif">
         <p class="grave-name">
         </p>
       <div class="flowers">` + flowers  + `</div>
@@ -58,12 +58,15 @@ $(document).ready(function() {
   
   $("main").on("click", ".grave", function(){
     
-    let t = $(this).html();
+    g.view( $(this).attr("i") );
     
-    $("#view-grave .wrapper").html(`<div class='grave'>` + t + `</div>`);
-    console.log(t);
-    
-    $("#view-grave").fadeIn();
+//    
+//    let t = $(this).html();
+//    
+//    $("#view-grave .wrapper").html(`<div class='grave'>` + t + `</div>`);
+//    console.log(t);
+//    
+//    $("#view-grave").fadeIn();
     
   });
   
@@ -71,10 +74,3 @@ $(document).ready(function() {
 });
 
 
-
-
-function viewGrave(which){
-  
-  $("#view-grave").fadeIn();
-  
-};
